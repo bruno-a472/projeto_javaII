@@ -1,8 +1,11 @@
 package application.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,12 +42,22 @@ public class LivroController {
       livro.setTitulo(titulo);
       livro.setGenero(genero);
 
-      livroRepo.save(livro);
+      livroRepo.save(livro); //não sei o que esse comando faz
+      
+      return "redirect:/livros/list"; //redirect?
+   }
+
+   @RequestMapping("/update/{id}")
+   public String update(Model ui, @PathVariable long id) {
+      Optional<Livro> resultado = livroRepo.findById(id);
+      
+      if (resultado.isPresent()){
+         ui.addAttribute("livro", resultado.get());
+         return "/livros/update";
+      }
       
       return "redirect:/livros/list";
    }
-
-
    
      
      
