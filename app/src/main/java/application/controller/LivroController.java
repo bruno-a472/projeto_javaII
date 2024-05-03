@@ -30,7 +30,7 @@ public class LivroController {
 
    @RequestMapping("/insert")
    public String insert(){
-        return"/livros/insert";
+        return "/livros/insert";
    }
 
    @RequestMapping(value= "/insert", method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class LivroController {
 
       Livro livro = new Livro();
       livro.setTitulo(titulo);
-      livro.setGenero(genero);
+      livro.getGenero().setNome(genero);
 
       livroRepo.save(livro); //não sei o que esse comando faz
       
@@ -69,7 +69,7 @@ public class LivroController {
 
       if(resultado.isPresent()) {
          resultado.get().setTitulo(titulo);
-         resultado.get().setGenero(genero);
+         resultado.get().getGenero().setNome(genero);
       }
 
       livroRepo.save(resultado.get());
