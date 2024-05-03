@@ -14,6 +14,7 @@
             <tr>
                 <th>Id</th>
                 <th>Titulos</th>
+                <th>Gênero</th>
                 <th>&nbsp;</th>
             </tr>
             <c:forEach var="l" items="${livros}">
