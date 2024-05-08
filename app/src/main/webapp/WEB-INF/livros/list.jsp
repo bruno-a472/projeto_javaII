@@ -10,6 +10,7 @@
     <body>
         <h1>Livros</h1>
         <a href="/livros/insert">Novo Livro</a>
+        <a href="/generos/insert">Novo Genero</a>
         <table>
             <tr>
                 <th>Id</th>
@@ -21,7 +22,7 @@
                 <tr>
                     <td>${l.getId()}</td>
                     <td>${l.getTitulo()}</td>
-                    <td>${l.getGenero()}</td>
+                    <td>${l.getGenero().getNome()}</td>
                     <td>
                         <a href="/livros/update/${l.getId()}">Editar</a>
                         <a href="/livros/delete/${l.getId()}">Excluir</a>
@@ -29,5 +30,8 @@
                 </tr>
             </c:forEach>
         </table>
+        <br>
+        <a href="/livros/list">Lista de Livros</a>
+        <a href="/generos/list">Lista de Gêneros</a>
     </body>
 </html>

@@ -9,6 +9,8 @@
     </head>
     <body>
         <h1>Gêneros</h1>
+        <a href="/livros/insert">Novo Livro</a>
+        <a href="/generos/insert">Novo Genero</a>
         <!-- <a href="/livros/insert">Novo Gêrnero</a> -->
         <table>
             <tr>
@@ -16,16 +18,19 @@
                 <th>Nomes</th>
                 <th>&nbsp;</th>
             </tr>
-            <c:forEach var="l" items="${generos}">
+            <c:forEach var="g" items="${generos}">
                 <tr>
-                    <td>${l.getId()}</td>
-                    <td>${l.getNome()}</td>
+                    <td>${g.getId()}</td>
+                    <td>${g.getNome()}</td>
                     <td>
-                        <a href="/generos/update/${l.getId()}">Editar</a>
-                        <a href="/generos/delete/${l.getId()}">Excluir</a>
+                        <a href="/generos/update/${g.getId()}">Editar</a>
+                        <a href="/generos/delete/${g.getId()}">Excluir</a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
+        <br>
+        <a href="/livros/list">Lista de Livros</a>
+        <a href="/generos/list">Lista de Gêneros</a>
     </body>
 </html>

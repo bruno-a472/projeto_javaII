@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import application.model.Livro;
+import application.model.Genero;
 import application.repository.LivroRepository;
+import application.repository.GeneroRepository;
 
 @Controller
 @RequestMapping("/livros")
 public class LivroController {
    @Autowired
    private LivroRepository livroRepo;
+   private GeneroRepository generoRepo;
 
    @RequestMapping("/list")
    public String list(Model ui) {
@@ -29,18 +32,19 @@ public class LivroController {
 
 
    @RequestMapping("/insert")
-   public String insert(){
-        return "/livros/insert";
+   public String insert(Model ui){
+      ui.addAttribute("generos", generoRepo.findAll());
+      return "/livros/insert";
    }
 
    @RequestMapping(value= "/insert", method = RequestMethod.POST)
    public String insert(
       @RequestParam("titulo") String titulo,
-      @RequestParam("genero") String genero) {
+      @RequestParam("genero") Genero genero) {
 
       Livro livro = new Livro();
       livro.setTitulo(titulo);
-      livro.getGenero().setNome(genero);
+      livro.setGenero(genero);
 
       livroRepo.save(livro); //não sei o que esse comando faz
       

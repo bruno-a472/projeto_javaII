@@ -26,7 +26,7 @@ public class GeneroController {
 
    ui.addAttribute("generos", generoRepo.findAll());
 
-   return "/list";
+   return "/generos/list";
    }
 
    @RequestMapping("/insert")
@@ -43,6 +43,56 @@ public class GeneroController {
 
       generoRepo.save(genero); //não sei o que esse comando faz
       
-      return "redirect:/generos/list"; //redirect?
+      return "redirect:/generos/list"; //Sem o redirect, se chama um JSP, com o redirect, se chama a rota ---> isso que faz rodar a função
+   }
+
+   @RequestMapping("/update/{id}")
+   public String update(Model ui, @PathVariable long id) {
+      Optional<Genero> resultado = generoRepo.findById(id);
+      
+      if (resultado.isPresent()){
+         ui.addAttribute("genero", resultado.get());
+         return "/generos/update";
+      }
+      
+      return "redirect:/generos/list";
+   }
+   
+   @RequestMapping(value = "/update", method = RequestMethod.POST)
+   public String update(
+      @RequestParam("id") long id, 
+      @RequestParam("nome") String nome) {
+
+      Optional<Genero> resultado = generoRepo.findById(id);
+
+      if(resultado.isPresent()) {
+         resultado.get().setNome(nome);
+      }
+
+      generoRepo.save(resultado.get());
+
+      return "redirect:/generos/list";
+   }
+    
+   
+   @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+   public String delete(Model ui, @RequestParam("id") long id) {
+
+      Optional<Genero> resultado = generoRepo.findById(id);
+
+      if(resultado.isPresent()) {
+         ui.addAttribute("genero", resultado.get());
+         
+         return "/generos/delete";
+      }
+
+      return "redirect:/generos/list";
+   }
+
+   @RequestMapping(value = "/delete", method = RequestMethod.POST)
+   public String delete(@RequestParam("id") long id) {
+      generoRepo.deleteById(id);
+      
+      return "redirect:/generos/list";
    }
 }
