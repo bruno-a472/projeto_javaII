@@ -11,10 +11,11 @@
             <h1>Novo Genero</h1>
             <form action="/generos/insert" method="post">
                 <div>
-                    <label>Nome</label>
-                    <input type="text" name="nome" />
+                    <label class="form-label">Nome</label>
+                    <input type="text" name="nome" class="form-control"/>
                 </div>
-                <button type="submit">Salvar</button>
+                <a href="/generos/list" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-succes">Salvar</button>
             </form>
         <div/>
     </body>

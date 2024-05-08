@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Editar Genero</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <h1>Editar Genero</h1>

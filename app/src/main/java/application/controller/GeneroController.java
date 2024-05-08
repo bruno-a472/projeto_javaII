@@ -67,6 +67,7 @@ public class GeneroController {
 
       if(resultado.isPresent()) {
          resultado.get().setNome(nome);
+      
       }
 
       generoRepo.save(resultado.get());
@@ -75,8 +76,8 @@ public class GeneroController {
    }
     
    
-   @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-   public String delete(Model ui, @RequestParam("id") long id) {
+   @RequestMapping(value = "/delete/{id}")
+   public String delete(Model ui, @PathVariable long id) {
 
       Optional<Genero> resultado = generoRepo.findById(id);
 

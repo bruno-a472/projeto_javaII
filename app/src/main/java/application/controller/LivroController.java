@@ -82,8 +82,8 @@ public class LivroController {
    }
     
    
-   @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-   public String delete(Model ui, @RequestParam("id") long id) {
+   @RequestMapping(value = "/delete/{id}")
+   public String delete(Model ui, @PathVariable long id) {
 
       Optional<Livro> resultado = livroRepo.findById(id);
 

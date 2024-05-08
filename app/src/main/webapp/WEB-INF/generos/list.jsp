@@ -6,13 +6,14 @@
     <head>
         <meta charset="UTF-8" />
         <title>Gêneros</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <h1>Gêneros</h1>
-        <a href="/livros/insert">Novo Livro</a>
-        <a href="/generos/insert">Novo Genero</a>
+        <a href="/livros/insert" class="btn btn-primary">Novo Livro</a>
+        <a href="/generos/insert" class="btn btn-primary">Novo Genero</a>
         <!-- <a href="/livros/insert">Novo Gêrnero</a> -->
-        <table>
+        <table class="table">
             <tr>
                 <th>Id</th>
                 <th>Nomes</th>
@@ -23,8 +24,8 @@
                     <td>${g.getId()}</td>
                     <td>${g.getNome()}</td>
                     <td>
-                        <a href="/generos/update/${g.getId()}">Editar</a>
-                        <a href="/generos/delete/${g.getId()}">Excluir</a>
+                        <a href="/generos/update/${g.getId()}" class="btn btn-secondary">Editar</a>
+                        <a href="/generos/delete/${g.getId()}" class="btn btn-danger">Excluir</a>
                     </td>
                 </tr>
             </c:forEach>

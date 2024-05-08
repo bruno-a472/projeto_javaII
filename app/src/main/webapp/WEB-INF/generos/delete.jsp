@@ -4,16 +4,21 @@
     <head>
         <meta charset="UTF-8" />
         <title>Remover gênero</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
+        <div class="container">
         <h1>Remover gênero</h1>
         <p>
             Tem certeza de que deseja excluir o gênero ${genero.getNome()} ?
         </p>
         <form action="/generos/delete" method="post">
             <input type="hidden" name="id" value="${genero.getId()}" />
+            
+            <hr />
             <a href="/generos/list">Voltar</a>
-            <button type="submit">Excluir</button>
+            <button type="submit" class="btn btn-danger">Excluir</button>
         </form>
+        </div>
     </body>
 </html>
