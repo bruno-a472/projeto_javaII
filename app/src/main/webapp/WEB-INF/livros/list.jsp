@@ -16,7 +16,7 @@
                     <th>Id</th>
                     <th>Título</th>
                     <th>Gênero</th>
-                    <p>teste
+                    <th>Autor</th>
                     <th>&nbsp;</th>
                 </tr>
                 <c:forEach var="l" items="${livros}">
@@ -24,7 +24,12 @@
                         <td>${l.getId()}</td>
                         <td>${l.getTitulo()}</td>
                         <td>${l.getGenero().nome}</td>
-                        
+                        <td>
+                            <c:forEach varStatus="s" var="a" items="${l.autores}">
+                                ${s.getCount() > 1? " / " : ""}
+                                ${a.nome}
+                            </c:forEach>
+                        </td>
                         <td>
                             <a href="/livros/update/${l.getId()}" class="btn btn-secondary">Editar</a> | 
                             <a href="/livros/delete/${l.getId()}" class="btn btn-danger">Excluir</a>
