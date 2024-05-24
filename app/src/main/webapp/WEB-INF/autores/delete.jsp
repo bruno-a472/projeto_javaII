@@ -3,18 +3,18 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Remover Gênero</title>
+        <title>Remover Autor</title>
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <div class="container">
-            <h1>Remover Gênero</h1>
-            <p>Tem certeza que deseja excluir o gênero ${genero.nome} ?</p>
-            <form action="/generos/delete" method="post">
-                <input type="hidden" name="id" value="${genero.id}" />
+            <h1>Remover Autor</h1>
+            <p>Tem certeza que deseja excluir o autor ${autor.nome} ?</p>
+            <form action="/autores/delete" method="post">
+                <input type="hidden" name="id" value="${autor.id}" />
 
                 <hr />
-                <a href="/generos/list" class="btn btn-secondary">Voltar</a>
+                <a href="/autores/list" class="btn btn-secondary">Voltar</a>
                 <button type="submit" class="btn btn-danger">Excluir</button>
             </form>
         </div>

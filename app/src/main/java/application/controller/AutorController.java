@@ -10,68 +10,68 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import application.model.Genero;
-import application.repository.GeneroRepository;
+import application.model.Autor;
+import application.repository.AutorRepository;
 
 @Controller
-@RequestMapping("/generos")
-public class GeneroController {
+@RequestMapping("/autores")
+public class AutorController {
     @Autowired
-    private GeneroRepository generoRepo;
+    private AutorRepository autorRepo;
 
     @RequestMapping("/list")
     public String list(Model ui) {
-        ui.addAttribute("generos", generoRepo.findAll());
-        return "/generos/list";
+        ui.addAttribute("autores", autorRepo.findAll());
+        return "/autores/list";
     }
 
     @RequestMapping("/insert")
     public String insert() {
-        return "/generos/insert";
+        return "/autores/insert";
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public String insert(@RequestParam("nome") String nome) {
-        Genero genero = new Genero();
-        genero.setNome(nome);
+        Autor autor = new Autor();
+        autor.setNome(nome);
         
-        generoRepo.save(genero);
-        return "redirect:/generos/list";
+        autorRepo.save(autor);
+        return "redirect:/autores/list";
     }
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable long id, Model ui) {
-        Optional<Genero> result = generoRepo.findById(id);
+        Optional<Autor> result = autorRepo.findById(id);
         if(result.isPresent()) {
-            ui.addAttribute("genero", result.get());
-            return "/generos/update";
+            ui.addAttribute("autor", result.get());
+            return "/autores/update";
         }
-        return "redirect:/generos/list";
+        return "redirect:/autores/list";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@RequestParam("id") long id, @RequestParam("nome") String nome) {
-        Optional<Genero> result = generoRepo.findById(id);
+        Optional<Autor> result = autorRepo.findById(id);
         if(result.isPresent()) {
             result.get().setNome(nome);
-            generoRepo.save(result.get());
+            autorRepo.save(result.get());
         }
-        return "redirect:/generos/list";
+        return "redirect:/autores/list";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable long id, Model ui) {
-        Optional<Genero> result = generoRepo.findById(id);
+        Optional<Autor> result = autorRepo.findById(id);
         if(result.isPresent()) {
-            ui.addAttribute("genero", result.get());
-            return "/generos/delete";
+            ui.addAttribute("autor", result.get());
+            return "/autores/delete";
         }
-        return "redirect:/generos/list";
+        return "redirect:/autores/list";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@RequestParam("id") long id) {
-        generoRepo.deleteById(id);
-        return "redirect:/generos/list";
+        autorRepo.deleteById(id);
+        return "redirect:/autores/list";
     }
 }

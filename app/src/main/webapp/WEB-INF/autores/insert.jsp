@@ -3,19 +3,19 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Novo Gênero</title>
+        <title>Novo Autor</title>
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <div class="container">
-            <h1>Novo Gênero</h1>
-            <form action="/generos/insert" method="post">
+            <h1>Novo Autor</h1>
+            <form action="/autores/insert" method="post">
                 <div>
                     <label class="form-label">Nome</label>
                     <input type="text" name="nome" class="form-control" />
                 </div>
                 <hr />
-                <a href="/generos/list" class="btn btn-secondary">Voltar</a>
+                <a href="/autores/list" class="btn btn-secondary">Voltar</a>
                 <button type="submit" class="btn btn-success">Salvar</button>
             </form>
         </div>
