@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Remover Livro</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <h1>Remover Livro</h1>

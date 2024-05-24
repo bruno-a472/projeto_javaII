@@ -5,6 +5,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Editar Livro</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <h1>Editar Livro</h1>
