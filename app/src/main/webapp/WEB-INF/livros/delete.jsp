@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8" />
         <title>Remover Livro</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
+        <%@ include file = "../menubar.jsp" %>
         <h1>Remover Livro</h1>
         <p>
             Tem certeza que deseja excluir o livro ${livro.getTitulo()} ?
